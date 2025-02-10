@@ -11,7 +11,6 @@ Version 2.0.0
   - React Components
   - UI/UX Design
  
-  - 
 - **Aditya Aishwarya** - Backend Developer & Database Specialist 
   - Backend Development
   - Database Design
