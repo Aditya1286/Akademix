@@ -1,5 +1,5 @@
 # 🎓 AKADEMIX Logo Guidelines
-![AKADEMIX Logo](logo.png)
+![AKADEMIX Logo](lg.png)
 ## 🎨 Design Tools & Specifications
 Created using Adobe Creative Suite:
 - ✏️ Adobe Illustrator 2024
