@@ -90,7 +90,6 @@ def create_post():
     except Exception as e:
         db.session.rollback()
         return jsonify({'error': str(e)}), 400
-
 @app.route('/posts', methods=['GET'])
 def get_posts():
     posts = Post.query.all()
