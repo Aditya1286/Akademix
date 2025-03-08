@@ -25,7 +25,7 @@ class User(db.Model):
             'email': self.email,
             'created_at': self.created_at.isoformat()
         }
-
+        
 # Post model
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
