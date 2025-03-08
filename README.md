@@ -5,7 +5,7 @@ Version 2.0.0
 ## 👥 Development Team
 
 **Core Team Members:**
-- **Naaz Manhas** - Lead Full Stack Developer & System Architect
+- **Naaz Manhas** - Full Stack Developer & System Architect
   - Frontend Development
   - System Architecture
   - React Components
