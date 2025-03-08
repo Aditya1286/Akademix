@@ -69,7 +69,7 @@ def get_users():
 def get_user(user_id):
     user = User.query.get_or_404(user_id)
     return jsonify(user.to_dict())
-
+    
 # Routes for Posts
 @app.route('/posts', methods=['POST'])
 def create_post():
