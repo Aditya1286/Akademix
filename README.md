@@ -9,6 +9,7 @@ Version 2.0.0
   - Frontend Development
   - System Architecture
   - React Components
+  - Adi ka papa
   - UI/UX Design
  
 - **Aditya Aishwarya** - Backend Developer & Database Specialist 
