@@ -22,4 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
 Akademix/.env
+node_modules
+.env
