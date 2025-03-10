@@ -1,11 +1,18 @@
 import { useState } from 'react'
-
+import{
+  Header,
+  Home,
+  Login
+} from './Components/index'
+import { Outlet } from 'react-router-dom'
 function App() {
   const [count, setCount] = useState(0)
 
   return (
    <>
-   <h1>Akademix</h1>
+    <Header/>
+      TOdo: <Outlet/>
+    <Footer/>
    </>
   )
 }
