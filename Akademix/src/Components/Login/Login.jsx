@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 
 function Login() {
+    const [fname , setfname] = useState("")
+    const [lname , setLname] = useState("")
     const [email , setEmail] = useState("")
-    const [password , setPassword] = useState()
+    const [password , setPassword] = useState("")
     const [visible,setVisible] = useState(false)
     const handler = ()=>{
         setVisible(!visible)
@@ -15,25 +17,25 @@ function Login() {
             <h1 className="text-2xl font-bold text-center text-white">Create Account</h1>
         </div>
         <div className="p-6">
-            <form method="post" action="register.php" className="space-y-6">
+            <form method="post" action="" className="space-y-6">
                 <div className="relative">
                     <i className=   "fas fa-user absolute text-blue-600 left-0 top-3"></i>
-                    <input type="text" name="fName" id="fName" placeholder="First Name" required
+                    <input type="text" placeholder="First Name" required onChange={(e)=>setfname(e.target.value)}
                         className="w-full bg-transparent border-b-2 border-gray-300 pb-2 pl-6 focus:outline-none focus:border-blue-600 transition duration-300"/>
                 </div>
                 <div className="relative">
                     <i className="fas fa-user absolute text-blue-600 left-0 top-3"></i>
-                    <input type="text" name="lName" id="lName" placeholder="Last Name" required
+                    <input type="text"  placeholder="Last Name" required onChange={(e)=>setLname(e.target.value)}
                         className="w-full bg-transparent border-b-2 border-gray-300 pb-2 pl-6 focus:outline-none focus:border-blue-600 transition duration-300"/>
                 </div>
                 <div className="relative">
                     <i className="fas fa-envelope absolute text-blue-600 left-0 top-3"></i>
-                    <input type="email" name="email" id="signupEmail" placeholder="Email" required
+                    <input type="email" placeholder="Email" required onChange={(e)=>setEmail(e.target.value)}
                         className="w-full bg-transparent border-b-2 border-gray-300 pb-2 pl-6 focus:outline-none focus:border-blue-600 transition duration-300"/>
                 </div>
                 <div className="relative">
                     <i className="fas fa-lock absolute text-blue-600 left-0 top-3"></i>
-                    <input type="password" name="password" id="signupPassword" placeholder="Password" required
+                    <input type="password"  placeholder="Password" required onChange={(e)=>setPassword(e.target.value)}
                         className="w-full bg-transparent border-b-2 border-gray-300 pb-2 pl-6 focus:outline-none focus:border-blue-600 transition duration-300"/>
                 </div>
                 <button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-white text-lg py-3 rounded-lg font-medium transition duration-300 shadow-md hover:shadow-lg" name="signUp">Sign Up</button>

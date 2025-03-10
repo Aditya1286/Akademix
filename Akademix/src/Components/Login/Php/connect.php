@@ -2,7 +2,7 @@
 
 $host = "localhost";
 $user = "root";
-$pass = "";
+$pass = 'jojo';
 $db = "login";
 
 // Create connection
