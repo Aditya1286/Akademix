@@ -1,15 +1,22 @@
 <?php 
 
 include 'connect.php';
+session_start(); // Start session at the beginning
 
-$inputData;
 header("Content-Type: application/json");
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
+header("Access-Control-Allow-Headers: Content-Type");
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $inputData = json_decode(file_get_contents("php://input"), true);
+// Get input data
+$inputData = json_decode(file_get_contents("php://input"), true);
+
+if (!$inputData) {
+    echo json_encode(["status" => "error", "message" => "Invalid input"]);
+    exit();
 }
 
-// Ensure the 'users' table exists
+// Ensure 'users' table exists
 $tableQuery = "CREATE TABLE IF NOT EXISTS users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     firstName VARCHAR(50) NOT NULL,
@@ -19,46 +26,49 @@ $tableQuery = "CREATE TABLE IF NOT EXISTS users (
 )";
 
 if (!$conn->query($tableQuery)) {
-    die(json_encode(["status" => "error", "message" => "Error creating table: " . $conn->error]));
+    echo json_encode(["status" => "error", "message" => "Error creating table: " . $conn->error]);
+    exit();
 }
 
-$flag = 1;
-foreach ($inputData as $x) {
-    echo "data".$x."" ;
-    if (empty($x)) {
-        $flag = 0;
-        break;
-    }
+
+
+$email = $conn->real_escape_string($inputData['email']);
+$password = $inputData['password'];
+
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    echo json_encode(["status" => "error", "message" => "Invalid email format"]);
+    exit();
 }
 
-if (($inputData['option'] === true) && $flag == 1) {
-    $email = $conn->real_escape_string($inputData['email']);
-    $password = md5($inputData['password']); // Consider using password_hash()
-
-    $sql = "SELECT * FROM users WHERE email=? AND password=?";
+if ($inputData['option'] === false) {
+    // **Login**
+    $sql = "SELECT * FROM users WHERE email=?";
     $stmt = $conn->prepare($sql);
-    $stmt->bind_param("ss", $email, $password);
+    $stmt->bind_param("s", $email);
     $stmt->execute();
     $result = $stmt->get_result();
-
+    
     if ($result && $result->num_rows > 0) {
-        session_start();
         $row = $result->fetch_assoc();
-        $_SESSION['email'] = $row['email'];
-        echo "<script>alert('Login Successful!'); window.location.href='homepage.php';</script>";
-        exit();
+        
+        if (password_verify($password, $row['password'])) {
+            $_SESSION['user_email'] = $row['email'];
+            echo json_encode(["status" => "success", "message" => "Login Successful"]);
+        } else {    
+            echo json_encode(["status" => "error", "message" => "Incorrect Email or Password"]);
+        }
     } else {
-        echo "<script>alert('Incorrect Email or Password'); window.location.href='index.php';</script>";
+        echo json_encode(["status" => "error", "message" => "User not found"]);
     }
-
+    
     $stmt->close();
 } else {
+    // **Register**
     $firstName = $conn->real_escape_string($inputData['firstName']);
     $lastName = $conn->real_escape_string($inputData['lastName']);
-    $email = $conn->real_escape_string($inputData['email']);
-    $password = md5($inputData['Pass']); // Consider using password_hash()
+    $hashedPassword = password_hash($password, PASSWORD_BCRYPT); // More secure
 
-    // Check if email already exists
+    // Check if email exists
     $checkEmail = "SELECT * FROM users WHERE email=?";
     $stmt = $conn->prepare($checkEmail);
     $stmt->bind_param("s", $email);
@@ -66,23 +76,22 @@ if (($inputData['option'] === true) && $flag == 1) {
     $result = $stmt->get_result();
 
     if ($result && $result->num_rows > 0) {
-        echo "<script>alert('Email Address Already Exists!'); window.location.href='index.php';</script>";
+        echo json_encode(["status" => "error", "message" => "Email Address Already Exists"]);
     } else {
         // Insert new user
         $insertQuery = "INSERT INTO users (firstName, lastName, email, password) VALUES (?, ?, ?, ?)";
         $stmt = $conn->prepare($insertQuery);
-        $stmt->bind_param("ssss", $firstName, $lastName, $email, $password);
+        $stmt->bind_param("ssss", $firstName, $lastName, $email, $hashedPassword);
 
         if ($stmt->execute()) {
-            echo "<script>alert('Registration Successful!'); window.location.href='index.php';</script>";
+            echo json_encode(["status" => "success", "message" => "Registration Successful"]);
         } else {
-            echo "<script>alert('Error: " . $conn->error . "');</script>";
+            echo json_encode(["status" => "error", "message" => "Error: " . $conn->error]);
         }
-
-        $stmt->close();
     }
+
+    $stmt->close();
 }
 
 $conn->close();
-
 ?>
