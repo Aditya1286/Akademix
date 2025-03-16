@@ -1,7 +1,7 @@
 <?php 
 
 include 'connect.php';
-session_start(); // Start session at the beginning
+session_start(); 
 
 header("Content-Type: application/json");
 header("Access-Control-Allow-Origin: *");
