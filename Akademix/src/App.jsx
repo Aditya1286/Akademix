@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import{
-  Header,
+  Sidebar,
   Home,
   Login
 } from './Components/index'
@@ -10,9 +10,7 @@ function App() {
 
   return (
    <>
-    <Header/>
-      TOdo: <Outlet/>
-    <Footer/>
+      
    </>
   )
 }

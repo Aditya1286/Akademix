@@ -1,11 +1,10 @@
-import Header from "./Header/Header";
-import Footer from "./Footer/Footer";
 import Home from "./Home/Home";
 import Login from './Login/Login'
-
+import Sidebar from "./SideBar/Sidebar";
+import Navbar from "./Navbar/Navbar";
 export {
-    Header,
-    Footer,
+    Sidebar,
+    Navbar,
     Home,
     Login
 }
