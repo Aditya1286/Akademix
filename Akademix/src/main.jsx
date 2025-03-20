@@ -15,7 +15,7 @@ import { Route, RouterProvider, createRoutesFromElements, createBrowserRouter, R
 const route = createBrowserRouter(
   createRoutesFromElements(
     <>
-      <Route path='/' element={<Login/>}/>
+      <Route path='/' element={<Home/>}/>
       <Route path='/Home' element={<Home />} />
     </>
   )
