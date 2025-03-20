@@ -3,11 +3,11 @@ import { useNavigate } from 'react-router-dom'
 function Sidebar() {
     const navigate  = useNavigate()
   return (
-    <div className='sidebar w-[25vh] h-[100vh] flex
-     bg-gray-300 flex-col p-4'>
+    <div className='sidebar w-[13vw] h-[100vh] flex
+     bg-white flex-col p-4 rounded-xl overflow-hidden'>
         <div className='logo text-3xl mb-8  mt-3 font-bold text-blue-700'>Akademix</div>
         <nav>
-        <span className='w-full flex h-[50px] hover:bg-blue-400 gap-5 px-4 justify-left items-center'><i className="fa-solid fa-globe text-2xl"></i><button className=' 
+        <span className='w-full flex h-[50px]  hover:bg-blue-400 gap-5 px-4 justify-left items-center'><i className="fa-solid fa-globe text-2xl"></i><button className=' 
              text-gray-600' onClick={()=>navigate('/home')}>Dashboard</button></span>
             <span className='w-full flex h-[50px] hover:bg-blue-400 gap-5 px-4 justify-left items-center'><i class="fa-solid fa-children text-2xl"></i><button className=' 
              text-gray-600' onClick={()=>navigate('/home')}>Students</button></span>
