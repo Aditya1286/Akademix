@@ -10,7 +10,7 @@ function Sidebar({sendDataToHome}) {
   }
   return (
     <div className={`w-full relative flex flex-col h-full ${hidden ? "" : "transform -translate-x-[85%]"} transition-all`}>
-    <div className={`sidebar w-[13vw] h-[100vh] flex
+    <div className={`sidebar w-[13vw] h-[300vh] fixed flex
      bg-white flex-col  rounded-xl overflow-hidden  
      ${hidden ? "" : "transform -translate-x-full"} transition-all`}>
       <div className='logo text-3xl mb-8  flex justify-around mt-3 p-4 font-bold text-blue-700'><p>Akademix</p>
@@ -32,8 +32,8 @@ function Sidebar({sendDataToHome}) {
              text-gray-600' onClick={() => navigate('/home')}>Notice</button></span>
       </nav>
     </div>
-    <div className={`${hidden?"w-[10%]":"w-[40%]"} h-[10%] bg-white absolute inset-x-[86%] rounded-md 
-    flex flex-shrink justify-center items-center text-2xl font-bold inset-y-[40%]`}><button onClick={hide}>{"<"}</button></div>
+    <div className={`${hidden?"w-[10%]":"w-[40%]"} absolute h-[5%] bg-gradient-to-r from-white to-slate-400  inset-x-[87%] rounded-md 
+    flex justify-center items-center text-2xl font-bold inset-y-[10%]`}><button onClick={hide}>{"<"}</button></div>
     </div>
   )
 }
