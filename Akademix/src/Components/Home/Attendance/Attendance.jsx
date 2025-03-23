@@ -12,8 +12,8 @@ function Attendance() {
     })
   return (
     <>
-    <div className='w-'>
-
+    <div className='w-full h-full flex'>
+        
     </div>
     </>
   )

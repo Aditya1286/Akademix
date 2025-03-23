@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import { Outlet } from 'react-router-dom'
-import { Sidebar, Navbar } from '../index'
+import { Sidebar, Navbar , Subject } from '../index'
 import Tab from './Tab/Tab'
 
 function Home() {
@@ -41,7 +41,7 @@ function Home() {
             />
           </div>
           <div className='w-full gap-4 h-[40vh] mt-6 rounded-md flex'>  {/*Middle Section Div*/}
-            <div className='w-[50%] h-full bg-yellow-500 rounded-md '>
+            <div className='w-[50%] h-[full] bg-yellow-500 rounded-md '>
               {/* Announcment component */}
             </div>
             <div className='w-[25%] h-full bg-slate-400 rounded-md '>
