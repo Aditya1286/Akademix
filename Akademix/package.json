@@ -12,6 +12,7 @@
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
     "@reduxjs/toolkit": "^2.6.1",
+    "@splinetool/react-spline": "^4.0.0",
     "autoprefixer": "^10.4.20",
     "axios": "^1.8.2",
     "dotenv": "^16.4.7",
