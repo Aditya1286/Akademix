@@ -6,7 +6,7 @@ export const subjectAttendance = async ({id , subjectCode , mode})=>{
         const result = await axios.post(subjectUrl , {id,subjectCode , mode},{
             headers: {'Content-Type':'application/json'}
         })
-        return {status: "success" , message:"Subject Attendance fetched!"}
+        return {status: "success" , message:"Subject Attendance fetched!" , response: result}
     } catch (error) {
         return {status:"error" , message:{
             err: error,
@@ -20,7 +20,7 @@ export const aggregateAttendance = async ({id , mode}) => {
         const result = await axios.post(subjectUrl , {id , mode},{
             headers: {'Content-Type':'application/json'}
         })
-        return {status: "success" , message:"Aggregate fetched Succesfully"}
+        return {status: "success" , message:"Aggregate fetched Succesfully" , response:result}
     } catch (error) {
         return {status: "error" , err:error , message:"Can't fetch Aggregate Attendance"}
     }

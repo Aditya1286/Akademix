@@ -59,6 +59,9 @@ importers:
       react-router-dom:
         specifier: ^7.3.0
         version: 7.3.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      react-simple-image-slider:
+        specifier: ^2.4.1
+        version: 2.4.1
       tailwindcss:
         specifier: '3'
         version: 3.4.17
@@ -1665,6 +1668,9 @@ packages:
     peerDependenciesMeta:
       react-dom:
         optional: true
+
+  react-simple-image-slider@2.4.1:
+    resolution: {integrity: sha512-9T/WjsRThJup43QxzH202rLVNqaUK9P8izTiWOfLcc5w3QygU44a9IQUuIwGYiXtWvw2spRRGLRc5Xd62/vfDg==}
 
   react-transition-group@4.4.5:
     resolution: {integrity: sha512-pZcd1MCJoiKiBR2NRxeCRg13uCXbydPnmB4EOeRrY7480qNWO8IIgQG6zlDkm6uRMsURXPuKq0GWtiM59a5Q6g==}
@@ -3427,6 +3433,8 @@ snapshots:
       turbo-stream: 2.4.0
     optionalDependencies:
       react-dom: 19.0.0(react@19.0.0)
+
+  react-simple-image-slider@2.4.1: {}
 
   react-transition-group@4.4.5(react-dom@19.0.0(react@19.0.0))(react@19.0.0):
     dependencies:

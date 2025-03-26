@@ -9,7 +9,7 @@ function Navbar() {
         // Item search Logic
     }
   return (
-    <div className='navbar fixed  w-[100%] rounded-md h-[8vh] 
+    <div className='navbar fixed z-10 w-[100%] rounded-md h-[8vh] 
     items-center flex justify-between px-[5%]  bg-white'>
         <div className='search w-[20%] h-[5vh] flex gap-2 px-2 items-center rounded-md bg-white'>
         <i class="fa-solid fa-magnifying-glass text-xl" onClick={searchItem}on></i>

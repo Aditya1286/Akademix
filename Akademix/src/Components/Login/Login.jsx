@@ -92,7 +92,7 @@ function Login() {
             ${transfer?"-translate-x-full":""} 
       w-[50%] from-black  to-gray-800 min-h-screen flex items-center justify-center p-4 font-sans`}>
               {/* Signup Form */}
-              <div className={` w-[50%] bg-black shadow-white shadow-[0_0_100px_0] rounded-xl  h-[45%] overflow-hidden ${visible ? "" : "hidden"}`}>
+              <div className={` w-[60%] bg-black shadow-white shadow-[0_0_100px_0] rounded-xl  h-[60%] overflow-hidden ${visible ? "" : "hidden"}`}>
                 <div className="bg-bl-600 bg-gray-200  py-4">
                   <h1 className="text-2xl font-bold bg-gray-200 text-center text-black">Create Account</h1>
                 </div>
@@ -111,12 +111,12 @@ function Login() {
               </div>
 
               {/* Sign In Form */}
-              <div className={` w-[50%]  h-[45%] flex shadow-white shadow-[0_0_100px_0] flex-col bg-black rounded-xl overflow-hidden ${visible ? "hidden" : ""}`}>
+              <div className={` w-[60%]  h-[60%] flex shadow-white shadow-[0_0_100px_0] flex-col bg-black rounded-xl overflow-hidden ${visible ? "hidden" : ""}`}>
                 <div className="bg-gray-300 py-4 ">
                   <h1 className="text-2xl font-bold text-center text-black">Welcome to Akademix</h1>
                 </div>
                 <div className={`w-full text-center text-red-500 border-red-2 ${passVisible ? "" : "hidden"}`}><p>Password, email or Otp is incorrect.</p></div>
-                <div className="p-6 border-none mt-10  outline-none">
+                <div className="p-6 border-none mt-16 outline-none">
                   <form method="post" onSubmit={onSubmit} className="space-y-6">
                     <input type="email" placeholder="Email" required value={email} onChange={(e) => setEmail(e.target.value)} className="w-full border-b-2 px-1 pt-2 text-xl
               pb-2 text-white placeholder-white bg-black " />

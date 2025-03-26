@@ -6,13 +6,14 @@ import {store} from './Components/Store/store.js'
 import {
   Home,
   Login,
+  Attendance
 } from './Components/index.js'
 import { Provider } from 'react-redux'
 import { Route, RouterProvider, createRoutesFromElements, createBrowserRouter, Router } from 'react-router-dom'
 const route = createBrowserRouter(
   createRoutesFromElements(
     <>
-      <Route path='/' element={<Login/>}/>
+      <Route path='/' element={<Attendance/>}/>
       <Route path='/home' element={<Home/>} />
     </>
   )
