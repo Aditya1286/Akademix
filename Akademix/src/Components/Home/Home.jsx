@@ -1,14 +1,42 @@
 import React from 'react'
 import { useState } from 'react'
 import { Outlet } from 'react-router-dom'
-import { Sidebar, Navbar } from '../index'
+import { Sidebar, Navbar , Subject , Fee , Announcement} from '../index'
 import Tab from './Tab/Tab'
+import { nanoid } from '@reduxjs/toolkit'
 
 function Home() {
   const [dataSidebar, setDataSidebar] = useState(false)
   const handleDataFromSidebar = (data) => {
     setDataSidebar(data);
   }
+  const tempData = [
+    {
+        code: "302", 
+        description: "Computer Science ",
+        Attendance: "81",
+    },
+    {
+        code: "321",
+        description: "Electronics",
+        Attendance: "72",
+    },
+    {
+        code: "345",
+        description: "Robotics",
+        Attendance: "47"
+    },
+    {
+        code: "300",
+        description: "Mathematics",
+        Attendance: "89"
+    },
+    {
+        code: "322",
+        description: "DSA",
+        Attendance: "92"
+    }
+]
   return (
     <>
       <div className='flex pr-1  w-full h-[300vh] flex-grow bg-slate-200'>
@@ -41,22 +69,27 @@ function Home() {
             />
           </div>
           <div className='w-full gap-4 h-[40vh] mt-6 rounded-md flex'>  {/*Middle Section Div*/}
-            <div className='w-[50%] h-full bg-yellow-500 rounded-md '>
-              {/* Announcment component */}
+            <div className='w-[50%] bg-contain z-0 shadow-gray-400 shadow-[0_0_20px_0.25rem] h-full overflow-hidden rounded-md '>
+              <Announcement/>
             </div>
             <div className='w-[25%] h-full bg-slate-400 rounded-md '>
-              {/* Happening component */}
+  
             </div>
             <div className='w-[25%] h-full bg-purple-500  rounded-md'>
               {/* Messages component */}
             </div>
           </div>
-          <div className='w-full gap-4 h-[40vh] mt-6 rounded-md flex'>  {/*My Courses Section Div*/}
-            <div className='w-[30%] h-full bg-pink-500 rounded-md '>
-              {/* My Courses component */}
+          <div className='w-full gap-3  h-[40vh] mt-6 rounded-md flex'>  {/*My Courses Section Div*/}
+            <div className='w-[30%] h-full bg-white border-gray-400 border-4 shadow-gray-400
+             shadow-[0_0_20px_0.25rem] overflow-y-scroll overflow-hidden flex-col flex gap-3 '>
+                {tempData.map((e)=>(
+                  <div key={nanoid()}>
+                          <Subject SubjectDescription={e.description} subjectCode={e.code} attendance={e.Attendance} bg={false}/>
+                    </div>
+                ))}
             </div>
-            <div className='w-[20%] h-full bg-green-400 rounded-md '>
-              {/* Fee component */}
+            <div className='w-[20%] h-full bg-green-400 shadow-gray-400 shadow-[0_0_20px_0.25rem] rounded-md '>
+                <Fee/>
             </div>
             <div className='w-[25%] h-full bg-red-400 rounded-md '>
               {/* Assignment component */}
@@ -83,16 +116,16 @@ function Home() {
           </div>
           <div className='w-full h-[40vh] gap-[1%] flex'>  {/* Section Div*/}
             <div className='w-[25%] h-full  bg-violet-400  rounded-md'>
-              {/* Placement component */}
+              
             </div>
             <div className='w-[25%] h-full bg-pink-400 rounded-md'>
-              {/* Placeent Drive Details component */}
+              
             </div>
             <div className='w-[25%] h-full bg-green-400  rounded-md'>
-              {/* Placeent Drive Details component */}
+              
             </div>
             <div className='w-[25%] h-full bg-orange-400  rounded-md'>
-              {/* Placeent Drive Details component */}
+             
             </div>
           </div>
         </div>

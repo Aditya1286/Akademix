@@ -11,7 +11,12 @@
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@mui/x-charts": "^7.28.0",
     "@reduxjs/toolkit": "^2.6.1",
+    "@splinetool/react-spline": "^4.0.0",
+    "Gauge": "link:@mui/x-charts/Gauge",
     "autoprefixer": "^10.4.20",
     "axios": "^1.8.2",
     "dotenv": "^16.4.7",
@@ -22,6 +27,7 @@
     "react-dom": "^19.0.0",
     "react-redux": "^9.2.0",
     "react-router-dom": "^7.3.0",
+    "react-simple-image-slider": "^2.4.1",
     "tailwindcss": "3"
   },
   "devDependencies": {

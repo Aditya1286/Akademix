@@ -2,11 +2,21 @@ import Home from "./Home/Home";
 import Login from './Login/Login'
 import Sidebar from "./Home/SideBar/Sidebar";
 import Navbar from "./Home/Navbar/Navbar";
-// import TodoCalendar from "./Home/TodoCalendar/TodoCalendar";
+import Subject from "./Home/Attendance/Subject/Subject";
+import Fee from "./Home/Fee/Fee"
+import Announcement from "./Home/Announcment/Announcement";
+import Attendance from "./Home/Attendance/Attendance";
+import Profile from "./Home/Attendance/Profile";
+import ChartAnalysis from "./Home/Attendance/ChartAnalysis";
 export {
     Sidebar,
     Navbar,
     Home,
     Login,
-    // TodoCalendar
+    Subject,
+    Fee,
+    Announcement,
+    Attendance,
+    Profile,
+    ChartAnalysis
 }

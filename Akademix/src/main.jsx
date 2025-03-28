@@ -1,22 +1,20 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import App from './App.jsx'
 import {store} from './Components/Store/store.js'
 import {
   Home,
   Login,
-  Navbar,
-  Sidebar,
-  // TodoCalendar
+  Attendance
 } from './Components/index.js'
 import { Provider } from 'react-redux'
 import { Route, RouterProvider, createRoutesFromElements, createBrowserRouter, Router } from 'react-router-dom'
 const route = createBrowserRouter(
   createRoutesFromElements(
     <>
-      <Route path='/' element={<Home/>}/>
-      <Route path='/Home' element={<Home />} />
+      <Route path='/' element={<Login/>}/>
+      <Route path='/home' element={<Home/>} />
+      <Route path='/attendance' element={<Attendance/>} />
     </>
   )
 )
