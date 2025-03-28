@@ -3,12 +3,40 @@ import { useState } from 'react'
 import { Outlet } from 'react-router-dom'
 import { Sidebar, Navbar , Subject , Fee , Announcement} from '../index'
 import Tab from './Tab/Tab'
+import { nanoid } from '@reduxjs/toolkit'
 
 function Home() {
   const [dataSidebar, setDataSidebar] = useState(false)
   const handleDataFromSidebar = (data) => {
     setDataSidebar(data);
   }
+  const tempData = [
+    {
+        code: "302", 
+        description: "Computer Science ",
+        Attendance: "81",
+    },
+    {
+        code: "321",
+        description: "Electronics",
+        Attendance: "72",
+    },
+    {
+        code: "345",
+        description: "Robotics",
+        Attendance: "47"
+    },
+    {
+        code: "300",
+        description: "Mathematics",
+        Attendance: "89"
+    },
+    {
+        code: "322",
+        description: "DSA",
+        Attendance: "92"
+    }
+]
   return (
     <>
       <div className='flex pr-1  w-full h-[300vh] flex-grow bg-slate-200'>
@@ -45,7 +73,7 @@ function Home() {
               <Announcement/>
             </div>
             <div className='w-[25%] h-full bg-slate-400 rounded-md '>
-              {/* Happening component */}
+  
             </div>
             <div className='w-[25%] h-full bg-purple-500  rounded-md'>
               {/* Messages component */}
@@ -53,12 +81,12 @@ function Home() {
           </div>
           <div className='w-full gap-3  h-[40vh] mt-6 rounded-md flex'>  {/*My Courses Section Div*/}
             <div className='w-[30%] h-full bg-white border-gray-400 border-4 shadow-gray-400
-             shadow-[0_0_20px_0.25rem] overflow-y-scroll overflow-hidden flex-col flex gap-3 rounded-md '>
-                <Subject/>
-                <Subject/>
-                <Subject/>
-                <Subject/>
-                <Subject/>
+             shadow-[0_0_20px_0.25rem] overflow-y-scroll overflow-hidden flex-col flex gap-3 '>
+                {tempData.map((e)=>(
+                  <div key={nanoid()}>
+                          <Subject SubjectDescription={e.description} subjectCode={e.code} attendance={e.Attendance} bg={false}/>
+                    </div>
+                ))}
             </div>
             <div className='w-[20%] h-full bg-green-400 shadow-gray-400 shadow-[0_0_20px_0.25rem] rounded-md '>
                 <Fee/>

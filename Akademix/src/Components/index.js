@@ -7,6 +7,7 @@ import Fee from "./Home/Fee/Fee"
 import Announcement from "./Home/Announcment/Announcement";
 import Attendance from "./Home/Attendance/Attendance";
 import Profile from "./Home/Attendance/Profile";
+import ChartAnalysis from "./Home/Attendance/ChartAnalysis";
 export {
     Sidebar,
     Navbar,
@@ -17,4 +18,5 @@ export {
     Announcement,
     Attendance,
     Profile,
+    ChartAnalysis
 }

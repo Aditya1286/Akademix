@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Gauge , gaugeClasses } from '@mui/x-charts';
 import { useEffect } from 'react';
 
-function Subject({subjectCode , SubjectDescription , attendance}) {
+function Subject({subjectCode , SubjectDescription , attendance , bgColor}) {
 
     const [subjectAttendance, setSubjectAttendance] = useState(attendance) 
 
@@ -20,9 +20,9 @@ function Subject({subjectCode , SubjectDescription , attendance}) {
     }
     return (
         <>
-            <div className='w-full rounded-xl h-full bg-gray-200  flex justify-between
+            <div className={`w-full overflow-hidden h-full ${bgColor?"bg-white":"bg-gray-200"}  flex justify-between
                 items-center
-            text-black'>
+            text-black`}>
                 <div className='w-[50%] h-full 4185text-lg flex flex-col justify-center items-center '>
                     <p className='text-lg font-bold'>{subjectCode}</p>
                     <p>{SubjectDescription}</p>

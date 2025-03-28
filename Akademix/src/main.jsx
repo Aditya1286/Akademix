@@ -1,7 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import App from './App.jsx'
 import {store} from './Components/Store/store.js'
 import {
   Home,
@@ -13,8 +12,9 @@ import { Route, RouterProvider, createRoutesFromElements, createBrowserRouter, R
 const route = createBrowserRouter(
   createRoutesFromElements(
     <>
-      <Route path='/' element={<Attendance/>}/>
+      <Route path='/' element={<Login/>}/>
       <Route path='/home' element={<Home/>} />
+      <Route path='/attendance' element={<Attendance/>} />
     </>
   )
 )

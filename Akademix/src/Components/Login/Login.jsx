@@ -1,6 +1,5 @@
-import Spline from "@splinetool/react-spline";
 import React, { useEffect, useState } from 'react'
-import { loginUser, registerUser } from '../api/auth'
+import { loginUser, registerUser } from '../../api/auth'
 import { useNavigate } from 'react-router-dom'
 import emailjs from '@emailjs/browser'
 function Login() {
@@ -92,7 +91,7 @@ function Login() {
             ${transfer?"-translate-x-full":""} 
       w-[50%] from-black  to-gray-800 min-h-screen flex items-center justify-center p-4 font-sans`}>
               {/* Signup Form */}
-              <div className={` w-[60%] bg-black shadow-white shadow-[0_0_100px_0] rounded-xl  h-[60%] overflow-hidden ${visible ? "" : "hidden"}`}>
+              <div className={` w-[60%] bg-black shadow-white shadow-[0_0_100px_0] rounded-xl h-[60%] overflow-hidden ${visible ? "" : "hidden"}`}>
                 <div className="bg-bl-600 bg-gray-200  py-4">
                   <h1 className="text-2xl font-bold bg-gray-200 text-center text-black">Create Account</h1>
                 </div>
