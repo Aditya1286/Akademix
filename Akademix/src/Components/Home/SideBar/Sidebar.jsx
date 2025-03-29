@@ -21,7 +21,7 @@ function Sidebar({sendDataToHome}) {
         <span className='w-full flex h-[50px] hover:bg-blue-400 gap-5 px-4 justify-left items-center'><i class="fa-solid fa-children text-2xl"></i><button className=' 
              text-gray-600' onClick={() => navigate('/home')}>Students</button></span>
         <span className='w-full flex h-[50px] hover:bg-blue-400 gap-5 px-4 justify-left items-center'><i className="fa-solid fa-chalkboard-user text-2xl "></i><button className=' 
-             text-gray-600' onClick={() => navigate('/home')}>Teachers</button></span>
+             text-gray-600' onClick={() => navigate('/attendance')}>Attendance</button></span>
         <span className='w-full flex h-[50px] hover:bg-blue-400 gap-7 px-4 justify-left items-center'><i className="fa-solid fa-clipboard-user text-3xl"></i><button className=' 
              text-gray-600' onClick={() => navigate('/home')}>Staffs</button></span>
         <span className='w-full flex h-[50px] hover:bg-blue-400 gap-7 px-4 justify-left items-center'><i className="fa-solid fa-calendar-days text-2xl"></i><button className=' 

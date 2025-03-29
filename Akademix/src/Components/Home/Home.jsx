@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import { Outlet } from 'react-router-dom'
-import { Sidebar, Navbar , Subject , Fee , Announcement} from '../index'
+import { Sidebar, Navbar , Subject , Fee , Announcement, Happenings} from '../index'
 import Tab from './Tab/Tab'
 import { nanoid } from '@reduxjs/toolkit'
 
@@ -73,7 +73,7 @@ function Home() {
               <Announcement/>
             </div>
             <div className='w-[25%] h-full bg-slate-400 rounded-md '>
-  
+              <Happenings/>
             </div>
             <div className='w-[25%] h-full bg-purple-500  rounded-md'>
               {/* Messages component */}
@@ -88,7 +88,7 @@ function Home() {
                     </div>
                 ))}
             </div>
-            <div className='w-[20%] h-full bg-green-400 shadow-gray-400 shadow-[0_0_20px_0.25rem] rounded-md '>
+            <div className='w-[20%] h-full  shadow-gray-400 shadow-[0_0_20px_0.25rem] overflow-hidden rounded-md '>
                 <Fee/>
             </div>
             <div className='w-[25%] h-full bg-red-400 rounded-md '>
