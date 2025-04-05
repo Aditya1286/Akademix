@@ -8,7 +8,10 @@ import Announcement from "./Home/Announcment/Announcement";
 import Attendance from "./Home/Attendance/Attendance";
 import Profile from "./Home/Attendance/Profile";
 import ChartAnalysis from "./Home/Attendance/ChartAnalysis";
-import Happenings from "./Home/Happenings/Happenings";
+import Happenings from "./Home/Happenings/Happenings"; 
+import Ai from './ai/Ai'
+import Adi from './ai/Adi'
+import Authorities from "./Home/Authorities/Authorities.jsx";
 export {
     Sidebar,
     Navbar,
@@ -20,5 +23,9 @@ export {
     Attendance,
     Profile,
     ChartAnalysis,
-    Happenings
+    Happenings,
+    Ai,
+    Adi,
+    Authorities
+    
 }

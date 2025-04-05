@@ -1,0 +1,1 @@
+import dog1 from '../images/dog1'

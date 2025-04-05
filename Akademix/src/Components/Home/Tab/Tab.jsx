@@ -1,5 +1,5 @@
 import React from 'react'
-function Tab({name, data="Fetch_Data" , icon , color}) {
+function Tab({name, data="Fetch_Data" , icon , color , style}) {
 
   const bgColors = {
     red: 'bg-red-600',
@@ -13,11 +13,11 @@ function Tab({name, data="Fetch_Data" , icon , color}) {
   return (
     <>
         <div className={`w-[25%] h-[100%] flex justify-between 
-          rounded-xl px-3
-          items-center ${bgColors[color] || "bg-blue-300"} `}>
+          rounded-xl px-3  
+          items-center ${bgColors[color] || "bg-orange-400"} ${style} hover:motion-scale-out-90 transition-all`}>
             <div>
                 <p>{name}</p>
-                <p>{data}</p>
+                <p className='text-xl font-bold'>{data}</p>
             </div>
             <span><i className={`fa-solid fa-${icon} text-2xl`}></i></span>
         </div>
