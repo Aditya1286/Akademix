@@ -1,3 +1,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities{
+    .no-scrollbar::-webkit-scrollbar{
+        display: none;
+    }
+    .no-scrollbar{
+    -ms-overflow-style: none; 
+      scrollbar-width: none; 
+    }
+}
+
+body{
+  @apply font-roboto
+}
+.hover-gradient{
+  @apply hover:bg-gradient-to-r hover:from-white hover:to-orange-600;
+}
+/* html, body, #root {
+  @apply h-full m-0 p-0;
+} */

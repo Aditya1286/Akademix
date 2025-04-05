@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LPU Student Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+    (function(){
+        emailjs.init({
+            publicKey: "cA9fZgMQoJqPXzlzX",
+        });
+    })();
+    </script>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            overflow: hidden;
+            font-family: 'Roboto';
+        }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+        
+        .input-transparent {
+            background-color: rgba(255, 255, 255, 0.4);
+        }
+        
+        /* Carousel styling */
+        .carousel {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .carousel-inner {
+            display: flex;
+            transition: transform 1s ease;
+            height: 100%;
+        }
+        
+        .carousel-item {
+            min-width: 100%;
+            height: 100%;
+        }
+        
+        .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* Form container */
+        .form-container {
+            height: 100vh;
+            overflow-y: auto;
+        }
+
+        /* Media queries for responsiveness */
+        @media (max-width: 768px) {
+            .main-container {
+                flex-direction: column;
+            }
+            
+            .carousel-container, .form-container {
+                width: 100%;
+            }
+            
+            .carousel-container {
+                height: 30vh;
+            }
+            
+            .form-container {
+                height: 70vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Main Container -->
+    <div class="flex flex-col md:flex-row w-full h-screen main-container">
+        
+        <!-- Left Side - Image Slideshow Only -->
+        <div class="w-full md:w-1/2 h-[30vh] md:h-screen bg-orange-50 carousel-container">
+            <div class="carousel h-full">
+                <div class="carousel-inner">
+                    <div class="carousel-item">
+                        <img src="https://i.pinimg.com/736x/a4/8f/02/a48f023600498d8c65d29a010e0875c9.jpg" alt="Students">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://i.pinimg.com/474x/64/81/86/648186bdb7490db17432bcef5b2fa048.jpg" alt="Campus Life">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://i.pinimg.com/736x/10/ac/20/10ac20ef10b362a564eb2a841397c2df.jpg" alt="Students">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://i.pinimg.com/474x/3e/02/33/3e02335ec0676b1321ee742a27896e89.jpg" alt="Graduation">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://i.pinimg.com/474x/61/be/91/61be91fd470e9046c9ecb06182923aa1.jpg" alt="Campus">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://i.pinimg.com/474x/28/8c/ec/288cec7f3de5409db4d84063d936a16b.jpg" alt="Students">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://i.pinimg.com/474x/0b/6a/21/0b6a213d52afe86713ad1a9f7b5e4b60.jpg" alt="Students">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://i.pinimg.com/474x/8c/9e/85/8c9e85563df0d91f1d1658d6d7d0e64c.jpg" alt="Students">
+                    </div>
+                    
+                    <div class="carousel-item">
+                        <img src="https://i.pinimg.com/736x/eb/6a/32/eb6a327b413cf8c18819cbf44f3237b0.jpg" alt="Students">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://i.pinimg.com/736x/55/26/3b/55263be53e59828870d16851d08e3dad.jpg" alt="Students">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://i.pinimg.com/736x/a8/50/6f/a8506f7fe7260d34c2ccd5ef2d775778.jpg" alt="Students">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Right Side - Akademix Form -->
+        <div class="w-full md:w-1/2 bg-white p-4 md:p-8 flex items-center justify-center form-container">
+            <div class="glass-effect p-4 md:p-8 rounded-xl shadow-xl w-full max-w-lg border border-white/30 transition duration-300 hover:shadow-orange-500/30">
+                <h2 class="text-2xl md:text-3xl mb-2 md:mb-4 font-extrabold text-center bg-gradient-to-r from-orange-500 to-black text-transparent bg-clip-text">Akademix Help Center</h2>
+                <p class="text-gray-800 text-center mb-4 md:mb-6 font-medium text-sm md:text-base">We're here to assist with your academic needs</p>
+                
+                <form class="space-y-3 md:space-y-5" onsubmit="sendemailto(event);">
+                    <div>
+                        <label for="name" class="block text-xs md:text-sm font-medium text-gray-800">Your Name:</label>
+                        <input type="text" id="name" name="name" required class="w-full p-2 md:p-3 mt-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 shadow-sm input-transparent">
+                    </div>
+                    
+                    <div>
+                        <label for="category" class="block text-xs md:text-sm font-medium text-gray-800">Category:</label>
+                        <select id="category" name="category" required class="w-full p-2 md:p-3 mt-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 shadow-sm input-transparent">
+                            <option value="" disabled selected>Select a category</option>
+                            <option value="Exam">Exam</option>
+                            <option value="Assignments">Assignments</option>
+                            <option value="Classes">Classes</option>
+                            <option value="Others">Others</option>
+                        </select>
+                    </div>
+                    
+                    <div>
+                        <label for="subject" class="block text-xs md:text-sm font-medium text-gray-800">Subject Name:</label>
+                        <input type="text" id="subject" name="subject" required class="w-full p-2 md:p-3 mt-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 shadow-sm input-transparent">
+                    </div>
+                    
+                    <div>
+                        <label for="email" class="block text-xs md:text-sm font-medium text-gray-800">Email:</label>
+                        <input type="email" id="email" name="email" required class="w-full p-2 md:p-3 mt-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 shadow-sm input-transparent">
+                    </div>
+                    
+                    <div>
+                        <label for="description" class="block text-xs md:text-sm font-medium text-gray-800">Description:</label>
+                        <textarea id="description" name="description" required class="w-full p-2 md:p-3 mt-1 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 h-20 md:h-28 resize-none shadow-sm input-transparent" placeholder="Describe your query..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="w-full bg-orange-500 text-white py-2 md:py-3 rounded-lg hover:bg-orange-600 transition duration-300 shadow-md font-semibold flex items-center justify-center text-sm md:text-base">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 md:h-5 md:w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                        </svg>
+                        Submit Request
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Email JS function
+        function sendemailto(event){
+            event.preventDefault();
+            let vari = {
+                name: document.getElementById("name").value.trim(),
+                category: document.getElementById("category").value,
+                course: document.getElementById("subject").value.trim(),
+                email: document.getElementById("email").value.trim(),
+                message: document.getElementById("description").value.trim()
+            };
+            if (!vari.name || !vari.category || !vari.course || !vari.email || !vari.message) {
+                alert("Please fill in all the fields.");
+                return;
+            }
+            emailjs.send("service_zhxtrit", "template_2zw1yra", vari).then(() => {
+                alert('Your query has been submitted successfully.');
+                document.querySelector("form").reset();
+            }).catch(error => {
+                alert('There was an error submitting your request. Please try again.');
+                console.error('EmailJS error:', error);
+            });
+        }
+        
+        // Enhanced carousel functionality with circular looping
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-item');
+        const totalSlides = slides.length;
+        const carouselInner = document.querySelector('.carousel-inner');
+        
+        function showSlide(index) {
+            // For circular looping, when we reach the end, smoothly transition to first slide
+            if (index >= totalSlides) {
+                // Option 1: Simply reset to the first slide
+                currentSlide = 0;
+            } else {
+                // Normal forward progression
+                currentSlide = index;
+            }
+            
+            // Apply the transformation
+            carouselInner.style.transform = `translateX(-${currentSlide * 100}%)`;
+        }
+        
+        // Auto slide the carousel every 3 seconds - always moving forward
+        setInterval(() => {
+            showSlide(currentSlide + 1);
+        }, 3000);
+        
+        // Fix for iOS Safari overflow issues
+        document.addEventListener('DOMContentLoaded', function() {
+            if (/iPhone|iPad|iPod/.test(navigator.userAgent)) {
+                document.body.style.height = 'calc(100% + 1px)';
+                setTimeout(function() {
+                    document.body.style.height = '100%';
+                }, 1000);
+            }
+        });
+    </script>
+</body>
+</html>

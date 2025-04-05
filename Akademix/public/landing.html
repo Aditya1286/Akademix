@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akademix - Track, analyze & share</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            light: '#ff7e29',
+                            DEFAULT: '#ff6b00',
+                            dark: '#e05e00',
+                        },
+                        secondary: {
+                            light: '#6b7280',
+                            DEFAULT: '#4b5563',
+                            dark: '#374151',
+                        },
+                        fontFamily: {
+                            roboto: ['Roboto', 'sans-serif'],
+                        },
+                    },
+                },
+            },
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer components {
+            .btn {
+                @apply px-4 py-2 rounded-md font-medium transition-all duration-200;
+            }
+            .btn-primary {
+                @apply bg-primary text-white hover:bg-primary-dark;
+            }
+            .btn-outline {
+                @apply border border-gray-300 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800;
+            }
+            .nav-link {
+                @apply px-4 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-all duration-200;
+            }
+            .stat-card {
+                @apply bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 flex flex-col items-center;
+            }
+            .stat-number {
+                @apply text-4xl font-bold mt-2 mb-1;
+            }
+            .stat-label {
+                @apply text-gray-500 dark:text-gray-400 text-sm;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 font-roboto transition-colors duration-200">
+    <header class="bg-white dark:bg-gray-800 shadow-sm">
+        <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+            <div class="flex items-center">
+                <div class="mr-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary">
+                        <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                        <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                    </svg>
+                </div>
+                <div class="flex items-center">
+                    <span class="text-xl font-bold text-gray-900 dark:text-white">Akad</span>
+                    <span class="text-xl font-bold text-primary">emix</span>
+                </div>
+            </div>
+            
+            <nav class="hidden md:flex items-center space-x-1">
+                <a href="#" class="nav-link text-gray-700 dark:text-gray-300">Assignment Tracker</a>
+                <a href="#" class="nav-link text-gray-700 dark:text-gray-300">Event Tracker</a>
+                <a href="#" class="nav-link text-gray-700 dark:text-gray-300">Profile Tracker</a>
+                <button id="theme-toggle" class="nav-link text-gray-700 dark:text-gray-300">
+                    <i class="fa-solid fa-sun dark:hidden"></i>
+                    <i class="fa-solid fa-moon hidden dark:inline"></i>
+                </button>
+                <a href="/login" class="btn btn-primary">Login</a>
+            </nav>
+            
+            <div class="md:hidden flex items-center">
+                <button id="mobile-theme-toggle" class="p-2 rounded-md text-gray-700 dark:text-gray-300">
+                    <i class="fa-solid fa-sun dark:hidden"></i>
+                    <i class="fa-solid fa-moon hidden dark:inline"></i>
+                </button>
+                <button id="mobile-menu-button" class="p-2 rounded-md text-gray-700 dark:text-gray-300">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-gray-800 shadow-inner">
+            <div class="container mx-auto px-4 py-2 space-y-2">
+                <a href="#" class="block nav-link text-gray-700 dark:text-gray-300">Assignment Tracker</a>
+                <a href="#" class="block nav-link text-gray-700 dark:text-gray-300">Event Tracker</a>
+                <a href="#" class="block nav-link text-gray-700 dark:text-gray-300">Profile Tracker</a>
+                <a href="#" class="block btn btn-primary text-center">Login</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="py-16 md:py-24">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-16">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-6 text-gray-900 dark:text-white">
+                        Track, analyze & share
+                    </h1>
+                    <h2 class="text-xl md:text-2xl max-w-3xl mx-auto text-gray-600 dark:text-gray-400">
+                        <span class="font-bold">Akad<span class="text-primary">emix</span></span> helps you navigate and track your
+                        learning journey to success
+                    </h2>
+                </div>
+                
+                <div class="flex flex-wrap justify-center gap-4 mb-16">
+                    <a href="#" class="btn btn-outline bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300">
+                        Assignment Tracker
+                    </a>
+                    <a href="#" class="btn btn-primary">
+                        Profile Tracker <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
+                <div class="flex flex-col md:flex-row items-center justify-center gap-8">
+                    <div class="md:w-1/3 flex justify-center">
+                        <div class="relative">
+                            <div class="w-64 h-64 md:w-80 md:h-80 bg-primary/10 dark:bg-primary/5 rounded-full flex items-center justify-center">
+                                <img src="https://i.pinimg.com/originals/a8/6b/82/a86b8281898aa135a41280e67cbd2c96.jpg" alt="Student avatar" class="w-56 h-56 md:w-72 md:h-72 rounded-full object-cover object-center" />
+                            </div>
+                            <div class="absolute -bottom-6 -right-6 bg-white dark:bg-gray-800 rounded-full p-4 shadow-lg">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary">
+                                    <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                                    <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="md:w-2/3 mt-16 md:mt-0">
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div class="stat-card">
+                                <div class="text-primary">
+                                    <i class="fa-solid fa-book fa-2x"></i>
+                                </div>
+                                <div class="stat-number text-gray-900 dark:text-white">1010</div>
+                                <div class="stat-label">Total Assignments</div>
+                            </div>
+                            
+                            <div class="stat-card">
+                                <div class="text-primary">
+                                    <i class="fa-solid fa-calendar-check fa-2x"></i>
+                                </div>
+                                <div class="stat-number text-gray-900 dark:text-white">348</div>
+                                <div class="stat-label">Active Days</div>
+                            </div>
+                            
+                            <div class="stat-card">
+                                <div class="text-primary">
+                                    <i class="fa-solid fa-trophy fa-2x"></i>
+                                </div>
+                                <div class="stat-number text-gray-900 dark:text-white">16</div>
+                                <div class="stat-label">Total Contests</div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-6 bg-white dark:bg-gray-800 rounded-lg shadow-md p-6">
+                            <div class="flex justify-between items-center mb-4">
+                                <h3 class="font-bold text-lg text-gray-900 dark:text-white">Progress Overview</h3>
+                                <div class="text-sm text-gray-500 dark:text-gray-400">Last 6 months</div>
+                            </div>
+                            <div class="h-48 flex items-end">
+                                <div class="w-1/6 h-12 bg-primary/20 dark:bg-primary/30 rounded-t-md mx-1"></div>
+                                <div class="w-1/6 h-20 bg-primary/30 dark:bg-primary/40 rounded-t-md mx-1"></div>
+                                <div class="w-1/6 h-16 bg-primary/40 dark:bg-primary/50 rounded-t-md mx-1"></div>
+                                <div class="w-1/6 h-24 bg-primary/50 dark:bg-primary/60 rounded-t-md mx-1"></div>
+                                <div class="w-1/6 h-32 bg-primary/70 dark:bg-primary/80 rounded-t-md mx-1"></div>
+                                <div class="w-1/6 h-40 bg-primary rounded-t-md mx-1"></div>
+                            </div>
+                            <div class="flex justify-between mt-2 text-xs text-gray-500 dark:text-gray-400">
+                                <div>Jun</div>
+                                <div>Jul</div>
+                                <div>Aug</div>
+                                <div>Sep</div>
+                                <div>Oct</div>
+                                <div>Nov</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="py-16 bg-gray-100 dark:bg-gray-800">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold mb-4 text-gray-900 dark:text-white">Features</h2>
+                    <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                        Akademix provides powerful tools to help you track your educational journey and improve your skills.
+                    </p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white dark:bg-gray-700 rounded-lg p-6 shadow-md">
+                        <div class="w-12 h-12 bg-primary/20 dark:bg-primary/30 rounded-lg flex items-center justify-center mb-4">
+                            <i class="fa-solid fa-tasks text-primary text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">Assignment Tracking</h3>
+                        <p class="text-gray-600 dark:text-gray-400">
+                            Keep track of all your assignments, deadlines, and submissions in one place.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-gray-700 rounded-lg p-6 shadow-md">
+                        <div class="w-12 h-12 bg-primary/20 dark:bg-primary/30 rounded-lg flex items-center justify-center mb-4">
+                            <i class="fa-solid fa-chart-line text-primary text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">Progress Analytics</h3>
+                        <p class="text-gray-600 dark:text-gray-400">
+                            Visualize your progress and identify areas for improvement with detailed analytics.
+                        </p>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-gray-700 rounded-lg p-6 shadow-md">
+                        <div class="w-12 h-12 bg-primary/20 dark:bg-primary/30 rounded-lg flex items-center justify-center mb-4">
+                            <i class="fa-solid fa-users text-primary text-xl"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2 text-gray-900 dark:text-white">Community Learning</h3>
+                        <p class="text-gray-600 dark:text-gray-400">
+                            Connect with peers, share your achievements, and learn collaboratively.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="py-16">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold mb-4 text-gray-900 dark:text-white">Join thousands of students</h2>
+                    <p class="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+                        Start tracking your educational journey today and take the next step toward success.
+                    </p>
+                </div>
+                
+                <div class="flex justify-center">
+                    <a href="#" class="btn btn-primary text-lg px-8 py-3">Get Started</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <div class="container mx-auto px-4 py-12">
+        <h1 class="text-4xl font-bold text-center mb-12 text-gray-900 dark:text-white">
+            Frequently Asked Questions
+        </h1>
+        
+        <div class="max-w-2xl mx-auto">
+            <div id="faq-container" class="space-y-4">
+                <!-- FAQ items will be dynamically added here -->
+            </div>
+        </div>
+    </div>
+    
+    <footer class="bg-gray-100 dark:bg-gray-800 py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <div class="mr-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary">
+                                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                                <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                            </svg>
+                        </div>
+                        <div class="flex items-center">
+                            <span class="text-lg font-bold text-gray-900 dark:text-white">Akad</span>
+                            <span class="text-lg font-bold text-primary">emix</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm">
+                        Your personal educational journey tracker. We help students navigate their learning path and achieve success.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-gray-900 dark:text-white mb-4">Features</h4>
+                    <ul class="space-y-2 text-gray-600 dark:text-gray-400">
+                        <li><a href="#" class="hover:text-primary">Assignment Tracker</a></li>
+                        <li><a href="#" class="hover:text-primary">Profile Tracker</a></li>
+                        <li><a href="#" class="hover:text-primary">Event Tracker</a></li>
+                        <li><a href="#" class="hover:text-primary">Analytics Dashboard</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-gray-900 dark:text-white mb-4">Resources</h4>
+                    <ul class="space-y-2 text-gray-600 dark:text-gray-400">
+                        <li><a href="#" class="hover:text-primary">Blog</a></li>
+                        <li><a href="#" class="hover:text-primary">Tutorials</a></li>
+                        <li><a href="#" class="hover:text-primary">Support</a></li>
+                        <li><a href="#" class="hover:text-primary">Documentation</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-gray-900 dark:text-white mb-4">Connect</h4>
+                    <ul class="space-y-2 text-gray-600 dark:text-gray-400">
+                        <li><a href="#" class="hover:text-primary">Contact Us</a></li>
+                        <li><a href="#" class="hover:text-primary">Twitter</a></li>
+                        <li><a href="#" class="hover:text-primary">LinkedIn</a></li>
+                        <li><a href="#" class="hover:text-primary">GitHub</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-200 dark:border-gray-700 mt-12 pt-6 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-sm text-gray-600 dark:text-gray-400">
+                    &copy; 2025 Akademix. All rights reserved.
+                </p>
+                <div class="flex space-x-4 mt-4 md:mt-0">
+                    <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-primary">
+                        <i class="fa-brands fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-primary">
+                        <i class="fa-brands fa-linkedin"></i>
+                    </a>
+                    <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-primary">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                    <a href="#" class="text-gray-600 dark:text-gray-400 hover:text-primary">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Theme toggle functionality
+        const themeToggleButtons = [
+            document.getElementById('theme-toggle'),
+            document.getElementById('mobile-theme-toggle')
+        ];
+        
+        function toggleDarkMode() {
+            if (document.documentElement.classList.contains('dark')) {
+                document.documentElement.classList.remove('dark');
+                localStorage.theme = 'light';
+            } else {
+                document.documentElement.classList.add('dark');
+                localStorage.theme = 'dark';
+            }
+        }
+        
+        themeToggleButtons.forEach(button => {
+            if (button) {
+                button.addEventListener('click', toggleDarkMode);
+            }
+        });
+        
+        // Check for saved theme preference or prefer-color-scheme
+        if (localStorage.theme === 'dark' || 
+            (!('theme' in localStorage) && 
+             window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+        
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+    </script>
+    <script>
+        // FAQ Data
+        const faqData = [
+            {
+                question: "How can I change my profile name?",
+                answer: "To change your profile name, go to the 'Edit Profile' page and navigate to the Accounts section. Click on the Edit button, enter your new profile name, and then click the 'Update' button to save changes."
+            },
+            {
+                question: "How do I track my assignments?",
+                answer: "Use the Assignment Tracker feature on Akademix. Add new assignments, set deadlines, and mark them as complete. The dashboard will help you visualize your progress and upcoming tasks."
+            },
+            {
+                question: "Which coding platforms are supported?",
+                answer: "Akademix currently supports integration with LeetCode, HackerRank, GitHub, and CodeForces. You can connect these platforms to track your coding progress and achievements."
+            },
+            {
+                question: "How do I connect my coding profiles?",
+                answer: "Navigate to the Profile Tracker section, select 'Connect Platforms', and choose the coding platform you want to link. Follow the authentication process to complete the connection."
+            },
+            {
+                question: "Can I customize my dashboard?",
+                answer: "Yes! Akademix allows you to customize your dashboard by selecting which metrics and widgets you want to display. Go to 'Dashboard Settings' to personalize your view."
+            }
+        ];
+
+        // Function to create FAQ items
+        function createFAQItems() {
+            const container = document.getElementById('faq-container');
+            
+            faqData.forEach((item, index) => {
+                const faqItem = document.createElement('div');
+                faqItem.classList.add(
+                    'bg-white', 
+                    'dark:bg-gray-800', 
+                    'rounded-lg', 
+                    'shadow-md', 
+                    'overflow-hidden'
+                );
+                
+                faqItem.innerHTML = `
+                    <div 
+                        class="faq-header flex justify-between items-center p-4 cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+                        data-index="${index}"
+                    >
+                        <h3 class="text-lg font-medium text-gray-900 dark:text-white">
+                            ${item.question}
+                        </h3>
+                        <button class="faq-toggle text-primary text-2xl font-bold">
+                            +
+                        </button>
+                    </div>
+                    <div 
+                        class="faq-answer hidden p-4 bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300"
+                    >
+                        ${item.answer}
+                    </div>
+                `;
+                
+                container.appendChild(faqItem);
+            });
+
+            // Add event listeners
+            document.querySelectorAll('.faq-header').forEach(header => {
+                header.addEventListener('click', function() {
+                    const answer = this.nextElementSibling;
+                    const toggle = this.querySelector('.faq-toggle');
+                    
+                    answer.classList.toggle('hidden');
+                    toggle.textContent = answer.classList.contains('hidden') ? '+' : '-';
+                });
+            });
+        }
+
+        // Initialize FAQ items when page loads
+        document.addEventListener('DOMContentLoaded', createFAQItems);
+    </script>
+</body>
+</html>

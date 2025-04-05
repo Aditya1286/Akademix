@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akademix Resource Library</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.6s ease-out forwards;
+            opacity: 0;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'akademix-orange': '#FF6F1A',
+                        'akademix-dark': '#1E2132',
+                        'akademix-light': '#F4F5F7'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-akademix-light text-akademix-dark min-h-screen">
+    <div class="container mx-auto px-4 py-8">
+        <header class="mb-12 text-center">
+            <h1 class="text-4xl font-bold text-akademix-dark mb-4 animate-fade-in">
+                Akademix Resource Library
+            </h1>
+            <p class="text-xl text-gray-600 animate-fade-in" style="animation-delay: 0.2s;">
+                Discover, Download, and Dive into Learning
+            </p>
+        </header>
+        
+        <div class="flex items-center justify-center mb-8">
+            <input type="text" id="search-input" placeholder="Search subjects..." 
+                   class="w-full max-w-md px-4 py-3 rounded-full border-2 border-akademix-orange focus:outline-none focus:ring-2 focus:ring-akademix-orange transition duration-300">
+        </div>
+
+        <div id="subjects-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Subject cards will be dynamically generated here -->
+        </div>
+    </div>
+
+    <script>
+        const subjects = [
+            {
+                code: 'MTH174',
+                name: 'Engineering Mathematics',
+                semester: '1st Semester',
+                credits: 4,
+                downloadLink: 'https://drive.google.com/uc?export=download&id=1nWte10PuZoUSz1RoxM8qzteVtITjVo8h',
+                icon: '💻'
+            },
+            {
+                code: 'ECE249',
+                name: 'Electronics',
+                semester: '2nd Semester',
+                credits: 3,
+                downloadLink: 'https://drive.google.com/uc?export=download&id=1JXt9JG9kfZ_AfpK6hbXmk_bQUQQ1cEe8',
+                icon: '📊'
+            },
+            {
+                code: 'PHYS102',
+                name: 'Classical Mechanics',
+                semester: '2nd Semester',
+                credits: 4,
+                downloadLink: '/resources/phys102-notes.pdf',
+                icon: '🔬'
+            },
+            {
+                code: 'ENG301',
+                name: 'Technical Writing',
+                semester: '3rd Semester',
+                credits: 3,
+                downloadLink: '/resources/eng301-notes.pdf',
+                icon: '✍️'
+            },
+            {
+                code: 'CS202',
+                name: 'Data Structures',
+                semester: '2nd Semester',
+                credits: 4,
+                downloadLink: '/resources/cs202-notes.pdf',
+                icon: '🗃️'
+            },
+            {
+                code: 'CHEM110',
+                name: 'Environmental',
+                semester: '1st Semester',
+                credits: 3,
+                downloadLink: 'https://drive.google.com/uc?export=download&id=1cIC1y5gUGQwfTHomJ6HAh4eopFfEMchW',
+                icon: '🧪'
+            },
+            {
+                code: 'CSE111',
+                name: 'Introduction to computing',
+                semester: '2nd Semester',
+                credits: 4,
+                downloadLink: '/resources/bio201-notes.pdf',
+                icon: '🧬'
+            },
+            {
+                code: 'INT108',
+                name: 'Python',
+                semester: '1st Semester',
+                credits: 3,
+                downloadLink: 'https://drive.google.com/uc?export=download&id=1YhHu-H39KeW2nZgn8QPIWo96SpJfchrW',
+                icon: '📈'
+            },
+            {
+                code: 'CS303',
+                name: 'Operating Systems',
+                semester: '3rd Semester',
+                credits: 4,
+                downloadLink: '/resources/cs303-notes.pdf',
+                icon: '💿'
+            },
+            {
+                code: 'STAT202',
+                name: 'Statistical Methods',
+                semester: '2nd Semester',
+                credits: 3,
+                downloadLink: '/resources/stat202-notes.pdf',
+                icon: '📉'
+            },
+            {
+                code: 'PSY101',
+                name: 'Introduction to Psychology',
+                semester: '1st Semester',
+                credits: 3,
+                downloadLink: '/resources/psy101-notes.pdf',
+                icon: '🧠'
+            },
+            {
+                code: 'ENG102',
+                name: 'World Literature',
+                semester: '2nd Semester',
+                credits: 3,
+                downloadLink: '/resources/eng102-notes.pdf',
+                icon: '📚'
+            }
+        ];
+
+        function renderSubjects() {
+            const grid = document.getElementById('subjects-grid');
+            grid.innerHTML = ''; // Clear existing cards
+            
+            subjects.forEach((subject, index) => {
+                const card = document.createElement('div');
+                card.className = `bg-white rounded-xl shadow-lg transform transition 
+                    hover:scale-105 hover:shadow-2xl animate-fade-in`;
+                card.style.animationDelay = `${index * 0.1}s`;
+                
+                card.innerHTML = `
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <span class="text-4xl mr-4 text-akademix-orange">${subject.icon}</span>
+                            <h2 class="text-xl font-bold text-akademix-dark">${subject.name}</h2>
+                        </div>
+                        <div class="space-y-2 mb-4">
+                            <p class="text-gray-600"><strong>Subject Code:</strong> ${subject.code}</p>
+                            <p class="text-gray-600"><strong>Semester:</strong> ${subject.semester}</p>
+                            <p class="text-gray-600"><strong>Credits:</strong> ${subject.credits}</p>
+                        </div>
+                        <a href="${subject.downloadLink}" 
+                           download 
+                           class="w-full bg-akademix-orange text-white py-3 px-4 rounded-full 
+                           hover:bg-opacity-90 transition duration-300 flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                            </svg>
+                            Download Notes
+                        </a>
+                    </div>
+                `;
+                
+                grid.appendChild(card);
+            });
+        }
+
+        // Search functionality
+        function setupSearch() {
+            const searchInput = document.getElementById('search-input');
+            searchInput.addEventListener('input', (e) => {
+                const searchTerm = e.target.value.toLowerCase();
+                const cards = document.querySelectorAll('#subjects-grid > div');
+                
+                cards.forEach(card => {
+                    const subjectName = card.querySelector('h2').textContent.toLowerCase();
+                    const subjectCode = card.querySelector('p:nth-child(1)').textContent.toLowerCase();
+                    
+                    if (subjectName.includes(searchTerm) || subjectCode.includes(searchTerm)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        }
+
+        // Render subjects and setup search when page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            renderSubjects();
+            setupSearch();
+        });
+    </script>
+</body>
+</html>

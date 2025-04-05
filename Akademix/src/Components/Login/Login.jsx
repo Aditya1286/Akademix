@@ -84,7 +84,7 @@ function Login() {
           <div className={`flex w-full h-full`}>
             <div className={`w-[50%] h-full relative transition-transform duration-400 bg-[#121212] ${transfer?"translate-x-full":""} ease-out`}>
             <div className="w-full z-0 absolute h-[10vh] bg-[#121212] inset-y-[90%]"></div>
-              <div className="w-full h-full z-10"><iframe className="" src='https://my.spline.design/particleaibrain-8ffbd882e06345c9caf4f737b8eb2cd6/' frameborder='0' width='100%' height='100% '></iframe></div>
+              <div className="w-full h-full z-10"><iframe src='https://my.spline.design/particleaibrain-ce2524b724a4d33e44337487d0ab0519/' frameborder='0' width='100%' height='100%'></iframe></div>
              
             </div>
             <div className={`bg-[#121212]  transition-transform durationn-400 ease-int
