@@ -1,7 +1,6 @@
 import React from 'react'
-
 import { useState } from 'react'
-import { Sidebar, Navbar , Subject , Fee , Announcement, Happenings , Authorities} from '../index'
+import { Sidebar, Navbar , Subject , RecentMessages , StudentPathwayChart,  Fee , Announcement, Happenings , Authorities , Footer , ExamSchedule , WeeklyTimetable , ChatbotWithEmoji} from '../index'
 import Tab from './Tab/Tab'
 import { nanoid } from '@reduxjs/toolkit'
 
@@ -10,6 +9,13 @@ function Home() {
   const handleDataFromSidebar = (data) => {
     setDataSidebar(data);
   }
+
+  const images = [
+    {url: "src/assets/images/1.jpeg"},
+    {url: "src/assets/images/2.jpeg"},
+    {url: "src/assets/images/3.jpeg"},
+    {url: "src/assets/images/4.jpeg"},
+]
   const tempData = [
     {
         code: "302", 
@@ -37,7 +43,12 @@ function Home() {
         Attendance: "92"
     }
 ]
-
+const motivation = [
+  {url: "src/assets/motivation/1.jpeg"},
+  {url: "src/assets/motivation/2.jpeg"},
+  {url: "src/assets/motivation/3.jpeg"},
+  {url: "src/assets/motivation/4.jpeg"},
+]
   const authoritiesInfo = [
      {
       imageLink: "src/assets/AuthoritiesImg/dog1.jpg",
@@ -49,24 +60,24 @@ function Home() {
      },
      {
       imageLink: "src/assets/AuthoritiesImg/dog2.jpg",
-      Name: "Aditya",
-      Designation: "Head of School",
-      contact: "1829320212",
-      Role: "Assistant Professor",
+      Name: "Raj",
+      Designation: "Head of Department",
+      contact: "1829313213",
+      Role: "Mentor",
      },
      {
       imageLink: "src/assets/AuthoritiesImg/dog3.jpg",
-      Name: "Aishwarya",
-      Designation: "Head of School",
-      contact: "1829320212",
-      Role: "Assistant Professor",
+      Name: "Naaz",
+      Designation: "Head of Faculty",
+      contact: "78423842784",
+      Role: "Front-End Professor",
      },
      {
       imageLink: "src/assets/AuthoritiesImg/dog4.jpg",
-      Name: "Bihari",
-      Designation: "Head of School",
-      contact: "1829320212",
-      Role: "Assistant Professor",
+      Name: "Nishant",
+      Designation: "Principal",
+      contact: "60053242423",
+      Role: "Event Organiser",
      },
      {
       imageLink: "src/assets/AuthoritiesImg/dog5.jpg",
@@ -79,7 +90,8 @@ function Home() {
   ]
   return (
     <>
-      <div className='flex pr-1  w-full h-[300vh] flex-grow  bg-slate-200 '>
+      <div className='flex pr-1  w-full h-[250vh] flex-grow  bg-slate-200 '>
+      <ChatbotWithEmoji />
         <div className={` ${dataSidebar ? "min-w-0" : "max-w-[15vw]"}  overflow-hidden flex flex-grow `}>
           <Sidebar sendDataToHome={handleDataFromSidebar} />
         </div>
@@ -101,7 +113,6 @@ function Home() {
               color="yellow"
               data="118"
               // style="motion-translate-y-in-100 motion-loop-once motion-duration-[1s] motion-ease-spring-smooth motion-delay-75 motion-blur-md "
-
             />
             <Tab
               name="Staffs"
@@ -121,47 +132,68 @@ function Home() {
           </div>
           <div className='w-full gap-4 h-[40vh] mt-6 rounded-md flex'>  {/*Middle Section Div*/}
             <div className='w-[50%] bg-contain z-0 shadow-gray-400 shadow-[0_0_20px_0.25rem] h-full overflow-hidden rounded-md '>
-              <Announcement/>
+              <Announcement images={images}/>
             </div>
             <div className='w-[25%] h-full rounded-md '>
-              <Happenings/>
+            <div className='w-full h-[15%] rounded-tl-md rounded-tr-md shadow-gray-400 
+             shadow-[0_0_20px_0.25rem] bg-orange-400 flex justify-center items-center text-lg text-white font-bold'><p>Happenings</p></div>
+                <div className='w-full h-[85%]'>
+                <Happenings/>
+                </div>
             </div>
             <div className='w-[25%] h-full bg-purple-500  rounded-md'>
-              {/* Messages component */}
+            <div className='w-full h-[15%] rounded-tl-md rounded-tr-md shadow-gray-400 
+             shadow-[0_0_20px_0.25rem] bg-orange-400 flex justify-center items-center text-lg text-white font-bold'><p>Messages</p></div>
+             <div className='w-full h-[85%]'>            
+                <RecentMessages />
+             </div>
             </div>
           </div>
           <div className='w-full gap-3  h-[40vh] mt-6 rounded-md flex'>  {/*My Courses Section Div*/}
-            <div className='w-[30%] h-auto bg-white border-gray-400 border-4 shadow-gray-400 
-             shadow-[0_0_20px_0.25rem] overflow-y-scroll no-scrollbar flex-col flex gap-3 '>
-               <div className='w-full h-[10%] flex  justify-center items-center bg-orange-400'>
-                  <p className='font-bold text-xl'>Attendance</p>
-              </div>
-                {tempData.map((e)=>(
+            <div className='w-[30%] h-full bg-white rounded-tl-md rounded-tr-md shadow-gray-400 
+             shadow-[0_0_20px_0.25rem] '>
+              <div className='w-full h-[15%] rounded-tl-md rounded-tr-md bg-orange-400 flex justify-center items-center text-lg text-white font-bold'><p>Attendance</p></div>
+              <div className='w-full h-[85%] overflow-y-scroll no-scrollbar flex-col flex gap-3 '>
+              {tempData.map((e)=>(  
                   <div key={nanoid()}>
                           <Subject SubjectDescription={e.description} subjectCode={e.code} attendance={e.Attendance} bg={false}/>
                     </div>
                 ))}
+              </div>
+                
             </div>
             <div className='w-[20%] h-full  shadow-gray-400 shadow-[0_0_20px_0.25rem] overflow-hidden rounded-md '>
-                <Fee/>
+            <div className='w-full h-[15%] rounded-tl-md rounded-tr-md bg-orange-400 flex justify-center items-center text-lg text-white font-bold'><p>Fee</p></div>
+            <div className='w-full h-[85%] '>
+            <Fee/>
+
             </div>
-            <div className='w-[25%] h-full bg-red-400 rounded-md '>
-              {/* Assignment component */}
             </div>
-            <div className='w-[25%] h-full bg-violet-900  rounded-md'>
-              {/* Events component */}
+            <div className='w-[25%] h-full shadow-gray-400 shadow-[0_0_20px_0.25rem]  bg-red-400 rounded-md '>
+            <div className='w-full h-[15%] rounded-tl-md rounded-tr-md bg-orange-400 flex justify-center items-center text-lg text-white font-bold'><p>Time Table</p></div>
+                <div className='w-full h-[85%]'>
+                  <WeeklyTimetable />
+                </div>
+            </div>
+            <div className='w-[25%] h-full shadow-gray-400 
+             shadow-[0_0_20px_0.25rem]  rounded-md'>
+              <div className='w-full h-[15%] rounded-tl-md rounded-tr-md bg-orange-400 flex justify-center items-center text-lg text-white font-bold'><p>Upcoming Exams</p></div>
+              <div className='w-full h-[85%]'><ExamSchedule/></div>
+              
             </div>
           </div>
           <div className='w-full h-[10vh] mt-[3%] mb-[1%] '>  {/* Placement Details text */}
             <p className='text-3xl font-medium '>Placement Details</p>
             <div className='w-full h-[3%] bg-gray-500 mt-4'></div> 
           </div>
-          <div className='w-full h-[40vh] gap-[1%] flex'>  {/*Placement Section Div*/}
-            <div className='w-[40%] h-full  bg-violet-900  rounded-md'>
-              {/* Placement component */}
+          <div className='w-full h-[40vh] gap-[1%] flex '>  {/*Placement Section Div*/}
+            <div className='w-[60%] h-full shadow-gray-400 shadow-[0_0_20px_0.25rem] rounded-md'>
+            <StudentPathwayChart />
             </div>
-            <div className='w-[60%] h-full bg-red-900  rounded-md'>
-              {/* Placeent Drive Details component */}
+            <div className='w-[40%] h-full bg-red-900 shadow-gray-400 shadow-[0_0_20px_0.25rem] rounded-md'>
+                <div className='w-full h-[100%] object-cover'>
+                  <Announcement images={motivation}/>
+                </div>
             </div>
           </div>
           <div className='w-full h-[10vh] mt-[3%] mb-[1%] '>  {/* Know your Authorities text div */}
@@ -181,7 +213,11 @@ function Home() {
             <div className='w-[25%] h-full rounded-md border-gray-400 border-4 shadow-gray-400 shadow-[0_0_20px_0.25rem]'>
             <Authorities info={{...authoritiesInfo[3]}} />
             </div>
+          </div>  {/* Ai assistant*/}
+          <div className='w-full h-[40vh] bg-red-400 mt-[4%]'> 
+                <Footer />
           </div>
+
         </div>
       </div>
     </>

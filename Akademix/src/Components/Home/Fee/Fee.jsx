@@ -7,7 +7,7 @@ function Fee() {
     }
     return (
         <>
-            <div className='w-full h-full border-gray-400 border-4 rounded-md bg-white'>
+            <div className='w-full h-full rounded-md bg-white'>
                 <div className='w-full h-[85%]  flex rounded-md flex-col justify-center gap-0 flex-1  items-center'>
                     <div className='text-xl font-bold '>
                         <p>NIL</p>

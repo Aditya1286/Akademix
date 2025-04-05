@@ -1,14 +1,11 @@
 import React from 'react'
 import akademixAchievements from './HappeningsData'
 import { nanoid } from '@reduxjs/toolkit'
-function Happenings({ Heading = "Happenings" }) {
+function Happenings({ Heading = "Happenings" }){
     const data = akademixAchievements
     return (
     <>
             <div className='w-full h-full bg-white overflow-hidden '>
-                <div className='header w-full h-[12%] items-center pl-2 bg-orange-400 flex text-xl font-semibold'>
-                    <p>Happenings</p>
-                </div>
                 <div className='w-full h-[85%] flex flex-col gap-3 mt-3 overflow-hidden no-scrollbar overflow-y-auto text-xs pl-5  font-bold'>
                 {data.map((data)=>(
                     <div key={nanoid()} className='w-full  h-[15%] flex gap-2 items-center justify- center'>

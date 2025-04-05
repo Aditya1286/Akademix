@@ -7,10 +7,10 @@ function Authorities({info}) {
         >
         </div>
         <div className="MidSec  text-lg w-full h-[10%] flex justify-center items-center bg-orange-400 ">
-            <p>{info.Designation}</p>
+            <p className='font-bold'>{info.Designation}</p>
         </div>
         <div className='info w-full text-sm h-[50%] pb-7 flex flex-col text-gray-600 pl-2 justify-center gap-2 '>
-            <p className='font-bold text-black'>{info.Name}</p>    
+            <p className='font-bold text-lg text-black'>{info.Name}</p>    
             <p>{info.Role}</p>
             <p>{info.contact}</p>
         </div>

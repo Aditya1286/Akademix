@@ -5,7 +5,7 @@ function Tab({name, data="Fetch_Data" , icon , color , style}) {
     red: 'bg-red-600',
     blue: 'bg-blue-600',
     green: 'bg-green-600',
-    yellow: 'bg-yellow-300',
+    yellow: 'bg-yellow-400',
     purple: 'bg-purple-600',
     gray: 'bg-gray-600', 
   };
@@ -16,8 +16,8 @@ function Tab({name, data="Fetch_Data" , icon , color , style}) {
           rounded-xl px-3  
           items-center ${bgColors[color] || "bg-orange-400"} ${style} hover:motion-scale-out-90 transition-all`}>
             <div>
-                <p>{name}</p>
-                <p className='text-xl font-bold'>{data}</p>
+                <p className='text-white font-bold text-lg'>{name}</p>
+                <p className='text-xl font-semibold'>{data}</p>
             </div>
             <span><i className={`fa-solid fa-${icon} text-2xl`}></i></span>
         </div>
