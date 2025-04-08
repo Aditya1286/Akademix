@@ -29,8 +29,8 @@ This education platform aims to revolutionize online learning by combining AI-dr
 
 ## 💻 Technology Stack
 - 🖥️ Frontend: React.js, Next.js
-- ⚙️ Backend: Node.js, Express
-- 🗄️ Database: MongoDB
+- ⚙️ Backend: Php
+- 🗄️ Database: MySQL
 - 🧮 AI/ML: TensorFlow, PyTorch
 - 🔐 Authentication: OAuth2, JWT
 
